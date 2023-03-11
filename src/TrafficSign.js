@@ -13,16 +13,12 @@ export class TrafficSign {
 
   loadTexture() {
     const textureLoader = new THREE.TextureLoader();
-    const textureUrl = 'https://www.verkeersbordenoverzicht.nl/images/tekens/1.png';
-    const texture = textureLoader.load(textureUrl);
-
-    // Adjust the texture's offset and repeat to fit the cylinder geometry
-    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(0.5, 1);
-    texture.offset.set(0.25, 0);
-
-    // Apply the texture to the mesh's material
-    this.mesh.material.map = texture;
-    this.mesh.material.needsUpdate = true;
+    const textureUrl = "https://www.verkeersbordenoverzicht.nl/images/";
+    const texturePath = textureUrl + this.data.imageUrl.split('/').pop();
+  
+    textureLoader.load(texturePath, (texture) => {
+      this.mesh.material.map = texture;
+      this.mesh.material.needsUpdate = true;
+    });
   }
 }
