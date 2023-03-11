@@ -65,3 +65,24 @@ module.exports = {
 	$("#quiz").quiz(quizOptions);
 });
 
+function loadQuestions() {
+	const questions = [];
+  
+	// loop through all images in the static folder
+	for (let i = 0; i < trafficSigns.length; i++) {
+	  const imageName = trafficSigns[i].split('.')[0]; // extract the image name without the extension
+	  const question = {
+		question: `Wat betekent dit verkeersbord?`,
+		imageUrl: `static/${trafficSigns[i]}`, // use the image name to generate the URL
+		choices: [
+		  { text: trafficSignsNL[imageName][0], correct: true },
+		  { text: trafficSignsNL[imageName][1], correct: false },
+		  { text: trafficSignsNL[imageName][2], correct: false },
+		],
+	  };
+  
+	  questions.push(question);
+	}
+  
+	return questions;
+  }

@@ -101,3 +101,5 @@ class Quiz {
       this.container.innerHTML = html;
     }
   }
+
+  quiz.shuffle();

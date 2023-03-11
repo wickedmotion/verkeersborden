@@ -13,7 +13,7 @@ export class TrafficSign {
 
   loadTexture() {
     const textureLoader = new THREE.TextureLoader();
-    const textureUrl = "https://www.verkeersbordenoverzicht.nl/images/";
+    const textureUrl = "https://github.com/wickedmotion/verkeersborden/tree/main/static";
     const texturePath = textureUrl + this.data.imageUrl.split('/').pop();
   
     textureLoader.load(texturePath, (texture) => {

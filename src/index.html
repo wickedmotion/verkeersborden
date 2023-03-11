@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<title>Dutch Traffic Sign Quiz</title>
 	<link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
@@ -25,9 +27,19 @@
 			<p id="score">You scored <span></span> out of <span></span>.</p>
 			<button id="restart">Restart Quiz</button>
 		</section>
+
+		const html = `
+  <div class="quiz">
+    <h2>${currentQuestion.question}</h2>
+    <img href="${currentQuestion.https://github.com/wickedmotion/verkeersborden/blob/main/static/A-serie_snelheid/A01-05.png}" alt="verkeersbord" class="traffic-sign" />
+    <ul>
+      ${choicesHtml}
+    </ul>
+    <button id="submit">Volgende</button>
+  </div>
+`;
 	</main>
 	<div id="quiz-container"></div>
-	<script src="bundle.js"></script>
 	<script src="/dist/bundle.js"></script>
 	<script src="index.js"></script>
 	<script src="TrafficSign.js"></script>
