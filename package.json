@@ -22,6 +22,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "javascript": "^1.0.0",
     "jquery": "^3.6.4",
     "jquery-quiz": "^2.0.0"
   }
