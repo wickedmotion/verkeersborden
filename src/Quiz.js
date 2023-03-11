@@ -5,21 +5,44 @@ class Quiz {
       this.currentQuestionIndex = 0;
       this.score = 0;
     }
+    
+    shuffle() {
+      for (let i = this.questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [this.questions[i], this.questions[j]] = [this.questions[j], this.questions[i]];
+      }
+    }
   
     render() {
       const currentQuestion = this.questions[this.currentQuestionIndex];
-      const choicesHtml = currentQuestion.choices
-        .map((choice, index) => {
-          return `
-            <li>
-              <label>
-                <input type="radio" name="choice" value="${index}" />
-                ${choice.text}
-              </label>
-            </li>
-          `;
-        })
-        .join("");
+      const choicesHtml = currentQuestion.choices.map((choice, index) => {
+        return `
+          <li>
+            <label>
+              <input type="radio" name="choice" value="${index}" />
+              ${choice.text}
+            </label>
+          </li>
+        `;
+      }).join("");
+  
+      this.timer = setInterval(() => {
+        this.timeLeft -= 1;
+        this.renderTimer();
+        if (this.timeLeft <= 0) {
+          clearInterval(this.timer);
+          this.renderFinalScore();
+        }
+      }, 1000);
+  
+      this.progressInterval = setInterval(() => {
+        this.progress += 1;
+        this.renderProgressBar();
+        if (this.progress >= 100) {
+          clearInterval(this.progressInterval);
+          this.renderFinalScore();
+        }
+      }, this.timePerQuestion * 10);
   
       const html = `
         <div class="quiz">
@@ -34,6 +57,11 @@ class Quiz {
   
       this.container.innerHTML = html;
       this.addSubmitListener();
+    }
+  
+    renderTimer() {
+      const timerEl = this.container.querySelector("#timer");
+      timerEl.textContent = `Time remaining: ${this.timeLeft} seconds`;
     }
   
     addSubmitListener() {
