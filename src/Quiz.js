@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 class Quiz {
     constructor(questions, container) {
       this.questions = questions;

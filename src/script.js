@@ -1,4 +1,5 @@
 import { Quiz } from "./Quiz.js";
+import * as THREE from 'three';
 
 const quizData = [
   {
