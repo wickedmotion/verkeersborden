@@ -2,7 +2,7 @@
   "name": "exercise",
   "version": "1.0.0",
   "description": "",
-  "main": "bundle.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --mode development --open",
@@ -22,8 +22,10 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "http-server": "^14.1.1",
     "javascript": "^1.0.0",
     "jquery": "^3.6.4",
-    "jquery-quiz": "^2.0.0"
+    "jquery-quiz": "^2.0.0",
+    "three": "^0.150.1"
   }
 }
