@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	
 	const path = require('path');
 
 module.exports = {
